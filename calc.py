@@ -1,31 +1,58 @@
-def find_peaks(series, threshold, respacing_factor=5):
+import pandas as pd
+import numpy as np
+
+from find_peaks import find_peaks
+
+def berechne_power_curve(power, zeitaufloesung=1):
     """
-    A function to find the peaks in a series
+    Berechnet die Power-Curve aus Leistungsdaten.
+
     Args:
-        - series (pd.Series): The series to find the peaks in
-        - threshold (float): The threshold for the peaks
-        - respacing_factor (int): The factor to respace the series
+        power: Leistungsdaten in Watt als pd.Series oder np.array
+        zeitaufloesung: Zeitabstand zwischen zwei Messpunkten in Sekunden
+
     Returns:
-        - peaks (list): A list of the indices of the peaks
+        pd.DataFrame mit:
+            - Zeit_s
+            - Leistung_W
     """
-    # Respace the series
-    series = series.iloc[::respacing_factor]
-    
-    # Filter the series
-    series = series[series>threshold]
 
+    power = pd.Series(power).fillna(0).reset_index(drop=True)
 
-    peaks = []
-    last = 0
-    current = 0
-    next = 0
+    ergebnisse = []
 
-    for index, row in series.items():
-        last = current
-        current = next
-        next = row
+    for fensterbreite in range(1, len(power) + 1):
 
-        if last < current and current > next and current > threshold:
-            peaks.append(index-respacing_factor)
+        dauer_s = fensterbreite * zeitaufloesung
 
-    return peaks
+        mittelwerte = power.rolling(
+            window=fensterbreite,
+            min_periods=fensterbreite
+        ).mean()
+
+        mittelwerte = mittelwerte.dropna()
+
+        if len(mittelwerte) == 0:
+            continue
+
+        threshold = mittelwerte.mean()
+
+        peaks = find_peaks(
+            series=mittelwerte,
+            threshold=threshold,
+            respacing_factor=5
+        )
+
+        if len(peaks) > 0:
+            max_leistung = mittelwerte.loc[peaks].max()
+        else:
+            max_leistung = mittelwerte.max()
+
+        ergebnisse.append({
+            "Zeit_s": dauer_s,
+            "Leistung_W": max_leistung
+        })
+
+    df_power_curve = pd.DataFrame(ergebnisse)
+
+    return df_power_curve
