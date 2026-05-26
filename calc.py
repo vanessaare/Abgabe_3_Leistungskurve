@@ -1,33 +1,31 @@
-def berechne_power_curve(power, dt=1):
+def find_peaks(series, threshold, respacing_factor=5):
     """
-    Berechnet die Power-Curve aus Leistungsdaten.
-
+    A function to find the peaks in a series
     Args:
-        power: pd.Series oder np.array mit Leistungswerten in Watt
-        dt: zeitlicher Abstand zwischen zwei Messpunkten in Sekunden
-
+        - series (pd.Series): The series to find the peaks in
+        - threshold (float): The threshold for the peaks
+        - respacing_factor (int): The factor to respace the series
     Returns:
-        pd.DataFrame mit Zeit in Sekunden und maximaler Durchschnittsleistung
+        - peaks (list): A list of the indices of the peaks
     """
+    # Respace the series
+    series = series.iloc[::respacing_factor]
+    
+    # Filter the series
+    series = series[series>threshold]
 
-    power = pd.Series(power).dropna().reset_index(drop=True)
 
-    ergebnisse = []
+    peaks = []
+    last = 0
+    current = 0
+    next = 0
 
-    max_fenster = len(power)
+    for index, row in series.items():
+        last = current
+        current = next
+        next = row
 
-    for fenster in range(1, max_fenster + 1):
-        dauer = fenster * dt
+        if last < current and current > next and current > threshold:
+            peaks.append(index-respacing_factor)
 
-        gleitender_mittelwert = power.rolling(window=fenster).mean()
-
-        max_power = gleitender_mittelwert.max()
-
-        ergebnisse.append({
-            "Zeit_s": dauer,
-            "Leistung_W": max_power
-        })
-
-    df_power_curve = pd.DataFrame(ergebnisse)
-
-    return df_power_curve 
+    return peaks
