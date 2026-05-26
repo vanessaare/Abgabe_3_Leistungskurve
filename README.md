@@ -1,0 +1,1 @@
+# Abgabe_3_Leistungskurve
