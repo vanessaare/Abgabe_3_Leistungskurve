@@ -14,7 +14,7 @@ def plot_power_curve(df_power_curve):
     plt.xlabel("Zeit")
     plt.ylabel("Power [W]")
     plt.title("Power Curve")
-    plt.grid(True, which="both")
+    plt.grid(True)
 
     ticks = [5, 10, 20, 60, 300, 1800]
     labels = ["5 s", "10 s", "20 s", "1 min", "5 min", "30 min"]
