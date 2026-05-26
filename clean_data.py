@@ -9,3 +9,4 @@ def lade_df_activity():
     df_activity["PowerOriginal"] = df_activity["PowerOriginal"].fillna(0)
     
     return df_activity
+    
