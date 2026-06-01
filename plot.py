@@ -6,7 +6,7 @@ from calc import berechne_power_curve
 
 def plot_power_curve(zeitaufloesung=1):
     """
-    Berechnet und plottet die Power Curve.
+    Plottet die Power Curve.
     """
 
     # 1. Daten laden
@@ -16,8 +16,7 @@ def plot_power_curve(zeitaufloesung=1):
 
     # 2. Power Curve berechnen
     curve_df = berechne_power_curve(
-        power=power,
-        zeitaufloesung=zeitaufloesung
+        power=power
     )
 
     # 3. Plot
