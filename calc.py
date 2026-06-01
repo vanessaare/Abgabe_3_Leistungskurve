@@ -1,28 +1,27 @@
 import pandas as pd
+
+from clean_data import lade_df_activity
 from find_peaks import find_peaks
 
-def berechne_power_curve(power, zeitaufloesung=1):
+
+def berechne_power_curve(zeitaufloesung=1):
     """
-    Berechnet die Power-Curve aus Leistungsdaten.    
+    Berechnet die Power-Curve aus den bereinigten Leistungsdaten.
     """
 
-    power = pd.Series(power).reset_index(drop=True)
+    df_activity = lade_df_activity()
+
+    power = df_activity["PowerOriginal"].reset_index(drop=True)
 
     ergebnisse = []
 
     for fensterbreite in range(1, len(power) + 1):
-
         dauer_s = fensterbreite * zeitaufloesung
 
         mittelwerte = power.rolling(
             window=fensterbreite,
             min_periods=fensterbreite
         ).mean()
-
-        mittelwerte = mittelwerte.dropna()
-
-        if len(mittelwerte) == 0:
-            continue
 
         threshold = mittelwerte.mean()
 
@@ -42,6 +41,4 @@ def berechne_power_curve(power, zeitaufloesung=1):
             "Leistung_W": max_leistung
         })
 
-    df_power_curve = pd.DataFrame(ergebnisse)
-
-    return df_power_curve 
+    return pd.DataFrame(ergebnisse)
