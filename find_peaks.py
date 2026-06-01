@@ -1,6 +1,3 @@
-import pandas as pd
-import numpy as np
-
 def find_peaks(series, threshold, respacing_factor=5):
     """
     A function to find the peaks in a series

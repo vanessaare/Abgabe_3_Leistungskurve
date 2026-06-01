@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 from find_peaks import find_peaks
 
