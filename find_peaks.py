@@ -1,11 +1,13 @@
+
+
 def find_peaks(series, threshold, respacing_factor=5):
     """
     A function to find the peaks in a series
-    Args:
+    Inputs:
         - series (pd.Series): The series to find the peaks in
         - threshold (float): The threshold for the peaks
         - respacing_factor (int): The factor to respace the series
-    Returns:
+    Outputs:
         - peaks (list): A list of the indices of the peaks
     """
     # Respace the series
