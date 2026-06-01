@@ -1,22 +1,12 @@
 import pandas as pd
-
 from find_peaks import find_peaks
 
 def berechne_power_curve(power, zeitaufloesung=1):
     """
-    Berechnet die Power-Curve aus Leistungsdaten.
-
-    Args:
-        power: Leistungsdaten in Watt als pd.Series oder np.array
-        zeitaufloesung: Zeitabstand zwischen zwei Messpunkten in Sekunden
-
-    Returns:
-        pd.DataFrame mit:
-            - Zeit_s
-            - Leistung_W
+    Berechnet die Power-Curve aus Leistungsdaten.    
     """
 
-    power = pd.Series(power).fillna(0).reset_index(drop=True)
+    power = pd.Series(power).reset_index(drop=True)
 
     ergebnisse = []
 
