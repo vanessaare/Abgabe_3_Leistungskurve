@@ -44,4 +44,4 @@ def berechne_power_curve(power, zeitaufloesung=1):
 
     df_power_curve = pd.DataFrame(ergebnisse)
 
-    return df_power_curve
+    return df_power_curve 
