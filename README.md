@@ -39,9 +39,6 @@ Zur Installation des Projekts wird **pip** verwendet.
 * **clean_data.py**
   Hauptskript zum Ausführen des Projekts.
 
-* **find_peaks.py**
-  Hauptskript zum Ausführen des Projekts.
-
 * **plot.py**
   Enthält die Funktion zur Berechnung der Power Curve.
 
@@ -59,11 +56,3 @@ Die Funktion liefert ein DataFrame mit:
 ## Die folgende Abbildung zeigt die erzeugte Power Curve:
 
 ![Power Curve](screenshot.png)
-
-## Voraussetzungen für das Projekt
-
-* Python 3.10+
-* pandas
-* numpy
-* matplotlib
-* pip
