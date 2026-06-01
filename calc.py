@@ -16,7 +16,7 @@ def berechne_power_curve(power, zeitaufloesung=1):
             - Leistung_W
     """
 
-    power = pd.Series(power).fillna(0).reset_index(drop=True)
+    power = pd.Series(power).dropna().reset_index(drop=True)
 
     ergebnisse = []
 
