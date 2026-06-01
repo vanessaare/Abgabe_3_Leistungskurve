@@ -34,14 +34,21 @@ Zur Installation des Projekts wird **pip** verwendet.
 * **main.py**
   Hauptskript zum Ausführen des Projekts.
 
+* **calc.py**
+  Hauptskript zum Ausführen des Projekts.
+
+* **clean_data.py**
+  Hauptskript zum Ausführen des Projekts.
+
+* **find_peaks.py**
+  Hauptskript zum Ausführen des Projekts.
+
 * **plot.py**
   Enthält die Funktion zur Berechnung der Power Curve.
 
 * **activity.csv**
   Enthält die Leistungsdaten.
 
-* **calc.py**
-  Screenshot der erzeugten Power Curve.
 
 ## Rückgabe der Funktion
 
