@@ -16,7 +16,7 @@ def plot_power_curve(zeitaufloesung=1):
 
     # 2. Power Curve berechnen
     curve_df = berechne_power_curve(
-        power=power
+        power=power, zeitaufloesung=zeitaufloesung
     )
 
     # 3. Plot
@@ -27,7 +27,10 @@ def plot_power_curve(zeitaufloesung=1):
         curve_df["Leistung_W"],
         linewidth=2
     )
+    ticks = [5, 10, 20, 60, 300, 1800]
+    labels = ["5 s", "10 s", "20 s", "1 min", "5 min", "30 min"]
 
+    plt.xticks(ticks, labels)
     plt.xlabel("Zeit [s]")
     plt.ylabel("Leistung [W]")
     plt.title("Power Curve")
