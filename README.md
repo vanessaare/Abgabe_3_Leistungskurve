@@ -6,7 +6,7 @@ Das Projekt erstellt aus Leistungsdaten in Watt eine **Power Curve**. Die Leistu
 
 Zur Installation des Projekts wird **pip** verwendet.
 
-## Dabei wird folgendermaßen vorgegangen:
+## Um die Power curve anzeigen zu lassen, muss folgendermaßen vorgegangen werden:
 
 1. Erstellen einer virtuellen Umgebung
    **->** python -m venv .venv
@@ -34,13 +34,13 @@ Zur Installation des Projekts wird **pip** verwendet.
   Hauptskript zum Ausführen des Projekts.
 
 * **calc.py**
-  Hauptskript zum Ausführen des Projekts.
+  Berechnet die Power Curve aus den Leistungsdaten.
 
 * **clean_data.py**
-  Hauptskript zum Ausführen des Projekts.
+  2 Hilfsfunktionen, die Daten importieren und Zeilen mit fehlenden Werten entfernen.
 
 * **plot.py**
-  Enthält die Funktion zur Berechnung der Power Curve.
+  Erzeugt einen Plot aus den berechneten Power Curve Daten.
 
 * **activity.csv**
   Enthält die Leistungsdaten.
@@ -55,4 +55,4 @@ Die Funktion liefert ein DataFrame mit:
 
 ## Die folgende Abbildung zeigt die erzeugte Power Curve:
 
-![Power Curve](screenshot.png)
+![Power Curve](images/power_curve.png)

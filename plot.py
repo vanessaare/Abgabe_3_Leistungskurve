@@ -23,4 +23,7 @@ def plot_power_curve(curve_df):
     plt.grid(True)
 
     plt.tight_layout()
+
+    plt.savefig("images/power_curve.png", dpi=300, bbox_inches="tight")
+
     plt.show()
