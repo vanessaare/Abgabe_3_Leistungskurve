@@ -4,7 +4,7 @@
 
 Das Projekt erstellt aus Leistungsdaten in Watt eine **Power Curve**. Die Leistungswerte werden aus einer Datei (*activity.csv*) geladen, verarbeitet und anschließend als Leistungskurve dargestellt.
 
-Zur Installation des Projekts wird **pip** verwendet.
+Zur Installation des Projekts wird pip verwendet.
 
 ## Um die Power curve anzeigen zu lassen, muss folgendermaßen vorgegangen werden:
 
