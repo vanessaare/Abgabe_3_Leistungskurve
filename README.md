@@ -22,7 +22,7 @@ Zur Installation des Projekts wird pip verwendet.
 
 ## Was macht das Projekt?
 
-1. Leistungsdaten werden aus einer Datei (*activity.csv*) geladen und aussortiert.
+1. Die Leistungsdaten werden aus einer Datei (*activity.csv*) geladen und aussortiert.
 2. Für verschiedene Zeitdauern wird die maximale durchschnittliche Leistung berechnet.
 3. Die Ergebnisse werden in einem DataFrame gespeichert.
 4. Die Power Curve wird als Diagramm dargestellt.
