@@ -2,6 +2,9 @@ from calc import berechne_power_curve
 from plot import plot_power_curve
 
 
-if __name__ == "__main__":
+def main():
     curve_df = berechne_power_curve()
     plot_power_curve(curve_df)
+
+if __name__ == "__main__":
+    main()
